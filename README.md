@@ -16,11 +16,9 @@ With this set-up, **StudyBuddy** will help students manage their time more effec
 learning more efficient, and hopefully reduce exam-related stress.
  
 ## User Stories
-- I want to add multiple Dates for my Clubs.
-- I want to add multiple Dates for my Courses.
+- I want to add multiple Dates to my Clubs and Courses.
 - I want to classify my Dates as an EXAM, PROJECT, MEETING, or OTHER.
-- I want to add multiple Reminders for my Clubs.
-- I want to add multiple Reminders for my Courses.
+- I want to make reminders for my Club and Course activities.
 - I want to add multiple Topics to my Courses.
 - I want to keep track of the number of practice questions I have completed for a Topic.
 - I want to keep track of the number of practice questions I need to complete for a Topic.
