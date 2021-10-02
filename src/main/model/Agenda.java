@@ -2,12 +2,12 @@ package model;
 
 import java.util.List;
 
-public interface Calendar {
+public interface Agenda {
     void addDate(Date date);
 
     void removeDate(Date date);
 
-    List<int[]> getDates();
+    List<Date> getDates();
 
     void addReminder(String reminder);
 
