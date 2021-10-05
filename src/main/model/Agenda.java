@@ -1,18 +1,46 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public interface Agenda {
-    void addDate(Date date);
+public abstract class Agenda {
+    protected String name;
+    protected List<Date> dates;
+    protected List<String> reminders;
 
-    void removeDate(Date date);
+    public Agenda(String name) {
+        this.name = name;
+        dates = new ArrayList<>();
+        reminders = new ArrayList<>();
+    }
 
-    List<Date> getDates();
+    // getter
+    public String getName() {
+        return name;
+    }
 
-    void addReminder(String reminder);
+    public void addDate(Date date) {
+        dates.add(date);
+    }
 
-    void removeReminder(int index);
+    public void removeDate(Date date) {
+        dates.remove(date);
+    }
 
-    List<String> getReminders();
+    public List<Date> getDates() {
+        return dates;
+    }
 
+    public void addReminder(String reminder) {
+        reminders.add(reminder);
+    }
+
+    // EFFECTS: remove reminder at position of index (zero-indexed)
+    public void removeReminder(int index) {
+        reminders.remove(index);
+    }
+
+    public List<String> getReminders() {
+        return reminders;
+    }
 }

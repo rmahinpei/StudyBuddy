@@ -5,9 +5,9 @@ public class Date {
     private DateType dateType;
     private String dateDescription;
 
-    // REQUIRES: year is greater than or equal to 2021 with four digits,
-    //           month is between 00-12 inclusive with two digits,
-    //           day is between 00-31 inclusive with two digits
+    // REQUIRES: year is a valid year >= 2021,
+    //           month is between 0-12 inclusive,
+    //           day is between 0-31
     // MODIFIES: this
     // EFFECTS: creates a date for the given year, month, day with the specified date type
     //          with an empty string as the default description
@@ -21,7 +21,7 @@ public class Date {
     }
 
     // setter
-    public void setDescription(String dateDescription) {
+    public void setDateDescription(String dateDescription) {
         this.dateDescription = dateDescription;
     }
 
@@ -40,8 +40,8 @@ public class Date {
         return dateDescription;
     }
 
-    // EFFECTS: returns date as a string with the format "day/month/year"
+    // EFFECTS: returns date as a string with the format "year/month/day"
     public String dateToString() {
-        return "" + date[2] + "/" + date[1] + "/" + date[0];
+        return "" + date[0] + "/" + date[1] + "/" + date[2];
     }
 }
