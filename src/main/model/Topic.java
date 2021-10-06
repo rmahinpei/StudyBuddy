@@ -34,6 +34,9 @@ public class Topic {
     //          if number of remaining questions is greater than 0, it decreases it by 1
     //          if it is 0, it keeps it at 0
     public void completeQuestion() {
-        // stub
+        numCompleted++;
+        if (numRemaining > 0) {
+            numRemaining--;
+        }
     }
 }

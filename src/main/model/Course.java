@@ -14,15 +14,21 @@ public class Course extends Agenda {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds given topic to the end of topics
-    public void addTopic(Topic t) {
+    // EFFECTS: creates a topic with given name and adds it to the end of topics
+    public void addTopic(String topicName) {
+        Topic t = new Topic(topicName);
         topics.add(t);
     }
 
     // MODIFIES: this
-    // EFFECTS: removes given topic from topics
-    public void removeTopic(Topic t) {
-        topics.remove(t);
+    // EFFECTS: removes the topic with given name from topics
+    public void removeTopic(String topicName) {
+        for (Topic t : topics) {
+            if (t.getTopicName().equals(topicName)) {
+                topics.remove(t);
+                break;
+            }
+        }
     }
 
     // getter
