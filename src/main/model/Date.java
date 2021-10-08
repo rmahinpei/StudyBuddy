@@ -20,11 +20,6 @@ public class Date {
         dateDescription = "";
     }
 
-    // setter
-    public void setDateDescription(String dateDescription) {
-        this.dateDescription = dateDescription;
-    }
-
     // getter
     public int[] getDate() {
         return date;
@@ -40,8 +35,8 @@ public class Date {
         return dateDescription;
     }
 
-    // EFFECTS: returns date as a string with the format "year/month/day"
+    // EFFECTS: returns date as a string with the format "dateType: year/month/day"
     public String dateToString() {
-        return "" + date[0] + "/" + date[1] + "/" + date[2];
+        return "" + dateType + ": " + date[0] + "/" + date[1] + "/" + date[2];
     }
 }

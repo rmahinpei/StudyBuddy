@@ -18,7 +18,7 @@ learning more efficient, and hopefully reduce exam-related stress.
 ## User Stories
 - I want to add multiple Dates to my Clubs and Courses.
 - I want to classify my Dates as an EXAM, PROJECT, MEETING, or OTHER.
-- I want to make reminders for my Club and Course activities.
+- I want to add multiple reminders to my Clubs.
 - I want to add multiple Topics to my Courses.
 - I want to keep track of the number of practice questions I have completed for a Topic.
 - I want to keep track of the number of practice questions I need to complete for a Topic.

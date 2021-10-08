@@ -13,6 +13,11 @@ public class Course extends Agenda {
         topics = new ArrayList<>();
     }
 
+    // getter
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
     // MODIFIES: this
     // EFFECTS: creates a topic with given name and adds it to the end of topics
     public void addTopic(String topicName) {
@@ -31,9 +36,11 @@ public class Course extends Agenda {
         }
     }
 
-    // getter
-    public List<Topic> getTopics() {
-        return topics;
+    // EFFECTS: prints out the topic name, number of completed Q's, number of remaining Q's for all topics
+    public void printTopics() {
+        for (Topic t : topics) {
+            System.out.println(t.getTopicName() + ": completed Qs = " + t.getNumCompleted()
+                    + ", remaining Qs = " + t.getNumRemaining());
+        }
     }
-
 }

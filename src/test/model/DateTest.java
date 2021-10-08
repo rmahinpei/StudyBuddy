@@ -23,15 +23,8 @@ class DateTest {
     }
 
     @Test
-    public void testSetDescription() {
-        d1.setDateDescription("My birthday");
-        assertEquals("My birthday", d1.getDateDescription());
-        // should I test setters and getters?
-    }
-
-    @Test
     public void testDateToString() {
-        assertEquals("2021/4/12", d1.dateToString());
+        assertEquals("EXAM: 2021/4/12", d1.dateToString());
     }
 
 }
