@@ -51,4 +51,12 @@ public class CourseTest extends AgendaTest {
         assertEquals("Surface sketching", c2.getTopics().get(0).getTopicName());
     }
 
+    @Test
+    public void testRemoveNotValidTopic() {
+        c2.removeTopic("Some topic not in topics");
+        assertEquals(2, c2.getTopics().size());
+        assertEquals("Surface sketching", c2.getTopics().get(0).getTopicName());
+        assertEquals("Partial derivatives", c2.getTopics().get(1).getTopicName());
+    }
+
 }
