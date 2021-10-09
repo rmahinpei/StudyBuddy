@@ -30,12 +30,4 @@ public abstract class Agenda {
         dates.remove(date);
     }
 
-    // NOT TESTED!!!
-    public void printDates() {
-        for (Date d : dates) {
-            System.out.println(d.dateToString());
-        }
-    }
-
-
 }

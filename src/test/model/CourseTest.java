@@ -8,14 +8,11 @@ public class CourseTest extends AgendaTest {
     Topic t1;
     Topic t2;
     Course c2;
-    // can I add fields to this test subclass?
-    // added here instead of superclass because it only has those fields
-    // Needed to add another course to test some of its specific methods...
 
     @BeforeEach
     public void setUp() {
-        c1 = new Course("CPSC 210");
-        c2 = new Course("MATH 200");
+        c1 = new Course("CPSC210");
+        c2 = new Course("MATH200");
         d1 = new Date(2021, 8, 8, DateType.EXAM);
         d2 = new Date(2022, 7, 18, DateType.MEETING);
 
@@ -25,6 +22,13 @@ public class CourseTest extends AgendaTest {
         c2.addTopic("Surface sketching");
         c2.addTopic("Partial derivatives");
     }
+
+    @Test
+    public void testConstructor() {
+        assertEquals("CPSC210", c1.getName());
+        assertEquals("MATH200", c2.getName());
+    }
+
 
     @Test
     public void testAddTopic() {

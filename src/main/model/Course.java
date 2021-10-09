@@ -35,12 +35,4 @@ public class Course extends Agenda {
             }
         }
     }
-
-    // EFFECTS: prints out the topic name, number of completed Q's, number of remaining Q's for all topics
-    public void printTopics() {
-        for (Topic t : topics) {
-            System.out.println(t.getTopicName() + ": completed Qs = " + t.getNumCompleted()
-                    + ", remaining Qs = " + t.getNumRemaining());
-        }
-    }
 }

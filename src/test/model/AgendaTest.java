@@ -25,6 +25,7 @@ public abstract class AgendaTest {
         assertFalse(c1.getDates().contains(d2));
     }
 
+
     //@Test
     //public void testAddReminder() {
     //    assertEquals(2, c1.getReminders());
