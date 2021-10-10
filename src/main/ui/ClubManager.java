@@ -2,6 +2,7 @@ package ui;
 
 import model.Club;
 import model.Date;
+import model.Topic;
 
 public class ClubManager extends AgendaManager {
     private Club club;
@@ -20,10 +21,12 @@ public class ClubManager extends AgendaManager {
             System.out.println("\nSelect from the following options:");
             System.out.println("A -> to add a date");
             System.out.println("B -> to remove a date");
-            System.out.println("C -> to go back");
+            System.out.println("C -> to add a reminder");
+            System.out.println("D -> to remove a reminder");
+            System.out.println("E -> to go back\n");
             command = input.next();
             command = command.toUpperCase();
-            if (command.equals("C")) {
+            if (command.equals("E")) {
                 keepRunning = false;
             } else {
                 processMenuCommand(command);
@@ -39,6 +42,12 @@ public class ClubManager extends AgendaManager {
                 System.out.println(d.dateToString());
             }
         }
+        if (!(club.getReminders().isEmpty())) {
+            System.out.println("\nHere are the topics in " + club.getName() + ":");
+            for (String r : club.getReminders()) {
+                System.out.println(r);
+            }
+        }
     }
 
     @Override
@@ -51,7 +60,30 @@ public class ClubManager extends AgendaManager {
             case "B":
                 removeDate(club);
                 break;
+            case "C":
+                addReminder();
+                break;
+            case "D":
+                removeReminder();
+                break;
+            default:
+                System.out.println("This option is invalid. Try again.");
+                break;
         }
+    }
+
+    private void addReminder() {
+        System.out.println("Enter your reminder: ");
+        String reminder = input.next();
+        club.addReminder(reminder);
+        System.out.println("Reminder was added!");
+    }
+
+    private void removeReminder() {
+        System.out.println("Enter the position of the reminder you want to remove: ");
+        int position = input.nextInt();
+        club.removeReminder(position);
+        System.out.println("Reminder was removed!");
     }
 
 }
