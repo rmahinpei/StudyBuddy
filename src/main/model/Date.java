@@ -6,8 +6,8 @@ public class Date {
     private String dateDescription;
 
     // REQUIRES: year is a valid year >= 2021,
-    //           month is between 0-12 inclusive,
-    //           day is between 0-31
+    //           month is between 1-12 inclusive,
+    //           day is between 1-31
     // MODIFIES: this
     // EFFECTS: creates a date for the given year, month, day with the specified date type
     //          with an empty string as the default description

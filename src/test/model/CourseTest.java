@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CourseTest extends AgendaTest {
-    Topic t1;
-    Topic t2;
     Course c2;
 
     @BeforeEach
