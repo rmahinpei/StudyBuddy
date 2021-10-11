@@ -1,5 +1,7 @@
 package model;
 
+// Represents a course topic that tracks number of practice questions completed and
+// number of practice questions remaining
 public class Topic {
     private static final int NUM_QUESTIONS_TO_COMPLETE = 3;
     private String name;

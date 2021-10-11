@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a course agenda that stores topics and dates
 public class Course extends Agenda {
     private List<Topic> topics;
 

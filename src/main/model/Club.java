@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a club agenda that stores reminders and dates
 public class Club extends Agenda {
     private List<String> reminders;
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Manages clubs stored in StudyBuddy application
 public class ClubsManager implements AgendasManager {
     private List<Club> clubs;
     private Scanner input;

@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents an agenda that stores important dates
 public abstract class Agenda {
     protected String name;
     protected List<Date> dates;

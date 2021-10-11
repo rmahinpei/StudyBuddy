@@ -17,9 +17,7 @@ class DateTest {
         assertEquals(2021, d1.getDate()[0]);
         assertEquals(4, d1.getDate()[1]);
         assertEquals(12, d1.getDate()[2]);
-        assertEquals("", d1.getDateDescription());
         assertEquals(DateType.EXAM, d1.getDateType());
-        // should I test all my enum options?
     }
 
     @Test

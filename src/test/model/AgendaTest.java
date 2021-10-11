@@ -24,26 +24,4 @@ public abstract class AgendaTest {
         assertEquals(1, c1.getDates().size());
         assertFalse(c1.getDates().contains(d2));
     }
-
-
-    //@Test
-    //public void testAddReminder() {
-    //    assertEquals(2, c1.getReminders());
-    //    assertTrue(c1.getReminders().contains("Review"));
-    //    assertTrue(c1.getReminders().contains("Study"));
-    //}
-
-    //@Test
-    //public void testRemoveFirstReminder() {
-    //    c1.removeReminder(0);
-    //    assertEquals(1, c1.getReminders().size());
-    //    assertFalse(c1.getReminders().contains("Review"));
-    //}
-
-    //@Test
-    //public void testRemoveSecondReminder() {
-    //    c1.removeReminder(1);
-    //    assertEquals(1, c1.getReminders().size());
-    //    assertFalse(c1.getReminders().contains("Study"));
-    //}
 }

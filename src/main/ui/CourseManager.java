@@ -4,6 +4,7 @@ import model.Course;
 import model.Date;
 import model.Topic;
 
+// Manages a course stored in StudyBuddy application
 public class CourseManager extends AgendaManager {
     private Course course;
 

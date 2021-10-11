@@ -2,6 +2,7 @@ package ui;
 
 import java.util.Scanner;
 
+// Main menu of StudyBuddy application
 public class StudyBuddyApp {
     private CoursesManager coursesManager;
     private ClubsManager clubsManager;

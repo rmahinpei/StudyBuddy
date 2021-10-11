@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Manages courses stored in StudyBuddy application
 public class CoursesManager implements AgendasManager {
     private List<Course> courses;
     private Scanner input;

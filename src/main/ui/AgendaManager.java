@@ -4,6 +4,7 @@ import model.*;
 
 import java.util.Scanner;
 
+// Manages dates in an Agenda subtype
 public abstract class AgendaManager {
     protected Scanner input;
 

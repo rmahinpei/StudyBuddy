@@ -9,7 +9,7 @@ to track club dates, course dates, and the practice questions they complete for 
 
 For many university courses, independent practice is essential to performing well in exams. 
 To ensure academic success, the main feature of **StudyBuddy** allows its users to create topics for 
-each of their courses and assign relevant practice questions to each topic. 
+each of their courses and assign a *minimum* of three relevant practice questions to each topic. 
 The aim of this feature is to encourage students to identify exam-worthy subjects and then 
 do a minimum of three practice problems per each topic so that they can master what they are taught in lectures.
 With this set-up, **StudyBuddy** will help students manage their time more effectively, make their 

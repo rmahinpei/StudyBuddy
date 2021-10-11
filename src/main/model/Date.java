@@ -1,9 +1,9 @@
 package model;
 
+// Represents a date that has a year, a month, a day as well as a date type
 public class Date {
     private int[] date;
     private DateType dateType;
-    private String dateDescription;
 
     // REQUIRES: year is a valid year >= 2021,
     //           month is between 1-12 inclusive,
@@ -17,7 +17,6 @@ public class Date {
         date[1] = month;
         date[2] = day;
         this.dateType = dateType;
-        dateDescription = "";
     }
 
     // getter
@@ -28,11 +27,6 @@ public class Date {
     // getter
     public DateType getDateType() {
         return dateType;
-    }
-
-    // getter
-    public String getDateDescription() {
-        return dateDescription;
     }
 
     // EFFECTS: returns date as a string with the format "dateType: year/month/day"

@@ -17,7 +17,6 @@ public class TopicTest {
         assertEquals("Surface sketching", t1.getTopicName());
         assertEquals(0, t1.getNumCompleted());
         assertEquals(3, t1.getNumRemaining());
-        // should 3 be hardcoded if it is a static constant?
     }
 
     @Test
@@ -26,18 +25,21 @@ public class TopicTest {
         // testing typical case
         assertEquals(2, t1.getNumRemaining());
         assertEquals(1, t1.getNumCompleted());
-        // testing accumulation
+
+        // testing accumulation of completed questions
         t1.completeQuestion();
         assertEquals(1, t1.getNumRemaining());
         assertEquals(2, t1.getNumCompleted());
+
         // testing edge case
         t1.completeQuestion();
         assertEquals(0, t1.getNumRemaining());
         assertEquals(3, t1.getNumCompleted());
-        // testing more completed than needed
+
+        // testing more questions completed than needed
         t1.completeQuestion();
         assertEquals(0, t1.getNumRemaining());
         assertEquals(4, t1.getNumCompleted());
-        // should these be divided into separate methods???
+
     }
 }
