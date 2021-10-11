@@ -7,14 +7,13 @@ import java.util.List;
 public class Course extends Agenda {
     private List<Topic> topics;
 
-    // EFFECTS: creates a course with given name that has 0 dates, reminders,
-    //          and topics by default
+    // EFFECTS: creates a course with given name that has 0 dates, 0 reminders, and 0 topics
     public Course(String name) {
         super(name);
         topics = new ArrayList<>();
     }
 
-    // getter
+    // GETTER
     public List<Topic> getTopics() {
         return topics;
     }

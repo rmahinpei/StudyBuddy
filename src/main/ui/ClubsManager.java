@@ -65,7 +65,7 @@ public class ClubsManager implements AgendasManager {
     }
 
     @Override
-    // EFFECTS: displays a club if it exists in user's clubs
+    // EFFECTS: proceeds to display a club only if it exists in user's clubs
     public void viewAgendaFromAgendas() {
         if (clubs.isEmpty()) {
             System.out.println("You currently don't have any clubs to view.");

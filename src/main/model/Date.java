@@ -5,12 +5,11 @@ public class Date {
     private int[] date;
     private DateType dateType;
 
-    // REQUIRES: year is a valid year >= 2021,
+    // REQUIRES: year is a valid year (>= 0 and having a max of 4 digits)
     //           month is between 1-12 inclusive,
     //           day is between 1-31
     // MODIFIES: this
     // EFFECTS: creates a date for the given year, month, day with the specified date type
-    //          with an empty string as the default description
     public Date(int year, int month, int day, DateType dateType) {
         date = new int[3];
         date[0] = year;
@@ -19,12 +18,12 @@ public class Date {
         this.dateType = dateType;
     }
 
-    // getter
+    // GETTER
     public int[] getDate() {
         return date;
     }
 
-    // getter
+    // GETTER
     public DateType getDateType() {
         return dateType;
     }

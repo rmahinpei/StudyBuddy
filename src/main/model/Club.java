@@ -7,26 +7,28 @@ import java.util.List;
 public class Club extends Agenda {
     private List<String> reminders;
 
-    // EFFECTS: creates a club with given name that has 0 dates and reminders by default
+    // EFFECTS: creates a club with given name that has 0 dates and 0 reminders
     public Club(String name) {
         super(name);
         reminders = new ArrayList<>();
     }
 
-    // getter
+    // GETTER
     public List<String> getReminders() {
         return reminders;
     }
 
+    // MODIFIES: this
     // EFFECTS: adds reminder to reminders
     public void addReminder(String reminder) {
         reminders.add(reminder);
     }
 
-    // REQUIRES: 1 <= index <= reminders.size()
-    // EFFECTS: remove reminder at position (starting from 1)
-    public void removeReminder(int index) {
-        reminders.remove(index - 1);
+    // REQUIRES: 1 <= position <= reminders.size()
+    // MODIFIES: this
+    // EFFECTS: remove reminder at the specified position in reminders
+    public void removeReminder(int position) {
+        reminders.remove(position - 1);
     }
 
 }

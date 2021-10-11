@@ -38,7 +38,7 @@ public class CourseManager extends AgendaManager {
     }
 
     @Override
-    // EFFECTS: prints dates and topics in course if dates and topics are not empty
+    // EFFECTS: prints dates and topics in course only if they are not empty
     protected void displayDetails() {
         if (!(course.getDates().isEmpty())) {
             System.out.println("\nHere are the dates in " + course.getName() + ":");
@@ -81,7 +81,7 @@ public class CourseManager extends AgendaManager {
     }
 
     // MODIFIES: course
-    // EFFECTS: adds a topic to course
+    // EFFECTS: adds a topic to topics of course
     private void addTopic() {
         System.out.println("Enter the name of the topic you want to add: ");
         String topicName = input.next();
@@ -90,7 +90,7 @@ public class CourseManager extends AgendaManager {
     }
 
     // MODIFIES: course
-    // EFFECTS: removes a topic from course
+    // EFFECTS: removes a topic from topics of course
     private void removeTopic() {
         System.out.println("Enter the name of the topic you want to remove: ");
         String topicName = input.next();
@@ -104,7 +104,7 @@ public class CourseManager extends AgendaManager {
     }
 
     // MODIFIES: topic
-    // EFFECTS: completes a question from the topic selected by user
+    // EFFECTS: completes a question for the topic selected by user
     private void completeTopicQuestion() {
         System.out.println("Enter the name of the topic for which you will complete a question: ");
         String topicName = input.next();

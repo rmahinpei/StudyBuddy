@@ -12,6 +12,7 @@ public class ClubManager extends AgendaManager {
         super();
     }
 
+    // EFFECTS: prints club menu and prompts user to select an option
     public void displayClubMenu(Club club) {
         this.club = club;
         String command;
@@ -36,6 +37,7 @@ public class ClubManager extends AgendaManager {
     }
 
     @Override
+    // EFFECTS: prints dates and reminders in club only if they are not empty
     protected void displayDetails() {
         if (!(club.getDates().isEmpty())) {
             System.out.println("\nHere are the dates in " + club.getName() + ":");
@@ -44,7 +46,7 @@ public class ClubManager extends AgendaManager {
             }
         }
         if (!(club.getReminders().isEmpty())) {
-            System.out.println("\nHere are the topics in " + club.getName() + ":");
+            System.out.println("\nHere are the reminders in " + club.getName() + ":");
             for (String r : club.getReminders()) {
                 System.out.println(r);
             }
@@ -73,6 +75,8 @@ public class ClubManager extends AgendaManager {
         }
     }
 
+    // MODIFIES: club
+    // EFFECTS: adds a reminder to reminders of club
     private void addReminder() {
         System.out.println("Enter your reminder: ");
         String reminder = input.next();
@@ -80,6 +84,8 @@ public class ClubManager extends AgendaManager {
         System.out.println("Reminder was added!");
     }
 
+    // MODIFIES: club
+    // EFFECTS: removes a reminder from the reminders in club
     private void removeReminder() {
         System.out.println("Enter the position of the reminder you want to remove: ");
         int position = input.nextInt();

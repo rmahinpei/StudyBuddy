@@ -3,30 +3,30 @@ package model;
 // Represents a course topic that tracks number of practice questions completed and
 // number of practice questions remaining
 public class Topic {
-    private static final int NUM_QUESTIONS_TO_COMPLETE = 3;
+    private static final int MIN_QUESTIONS_TO_COMPLETE = 3;
     private String name;
     private int numCompleted;
     private int numRemaining;
 
     // EFFECTS: creates a topic with given name and sets number of completed practice questions to 0
-    //          and number of remaining practice questions to the recommended constant by default
+    //          and number of remaining practice questions to MIN_QUESTIONS_TO_COMPLETE
     public Topic(String name) {
         this.name = name;
         numCompleted = 0;
-        numRemaining = NUM_QUESTIONS_TO_COMPLETE;
+        numRemaining = MIN_QUESTIONS_TO_COMPLETE;
     }
 
-    // getter
+    // GETTER
     public String getTopicName() {
         return name;
     }
 
-    // getter
+    // GETTER
     public int getNumCompleted() {
         return numCompleted;
     }
 
-    // getter
+    // GETTER
     public int getNumRemaining() {
         return numRemaining;
     }

@@ -8,7 +8,6 @@ public class StudyBuddyApp {
     private ClubsManager clubsManager;
     private Scanner input;
 
-
     // EFFECTS: initializes fields and runs the StudyBuddy application
     public StudyBuddyApp() {
         initialize();

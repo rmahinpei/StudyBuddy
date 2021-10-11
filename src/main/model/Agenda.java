@@ -13,20 +13,24 @@ public abstract class Agenda {
         dates = new ArrayList<>();
     }
 
-    // getter
+    // GETTER
     public String getName() {
         return name;
     }
 
-    // getter
+    // GETTER
     public List<Date> getDates() {
         return dates;
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds given date to dates
     public void addDate(Date date) {
         dates.add(date);
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes specified date from dates
     public void removeDate(Date date) {
         dates.remove(date);
     }

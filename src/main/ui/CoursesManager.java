@@ -65,7 +65,7 @@ public class CoursesManager implements AgendasManager {
     }
 
     @Override
-    // EFFECTS: displays a course if it exists in user's courses
+    // EFFECTS: proceeds to display a course only if it exists in user's courses
     public void viewAgendaFromAgendas() {
         if (courses.isEmpty()) {
             System.out.println("You currently don't have any courses to view.");
