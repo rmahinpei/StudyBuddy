@@ -12,6 +12,7 @@ public class CoursesManager implements AgendasManager {
     private Scanner input;
     private CourseManager courseManager;
 
+    // EFFECTS: creates a CoursesManager with an empty courses list, a scanner, and a CourseManager
     public CoursesManager() {
         courses = new ArrayList<>();
         input = new Scanner(System.in);

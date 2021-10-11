@@ -8,6 +8,7 @@ import model.Topic;
 public class ClubManager extends AgendaManager {
     private Club club;
 
+    // creates a ClubManager with a scanner
     public ClubManager() {
         super();
     }

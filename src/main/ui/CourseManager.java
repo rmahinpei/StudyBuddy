@@ -8,6 +8,7 @@ import model.Topic;
 public class CourseManager extends AgendaManager {
     private Course course;
 
+    // creates a CourseManager with a scanner
     public CourseManager() {
         super();
     }

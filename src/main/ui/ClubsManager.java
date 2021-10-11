@@ -12,6 +12,7 @@ public class ClubsManager implements AgendasManager {
     private Scanner input;
     private ClubManager clubManager;
 
+    // EFFECTS: creates a ClubsManager with an empty clubs list, a scanner, and a ClubManager
     public ClubsManager() {
         clubs = new ArrayList<>();
         input = new Scanner(System.in);
