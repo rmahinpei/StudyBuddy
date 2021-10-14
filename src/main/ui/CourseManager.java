@@ -81,7 +81,7 @@ public class CourseManager extends AgendaManager {
         }
     }
 
-    // MODIFIES: course
+    // MODIFIES: this
     // EFFECTS: adds a topic to topics of course
     private void addTopic() {
         System.out.println("Enter the name of the topic you want to add: ");
@@ -90,7 +90,7 @@ public class CourseManager extends AgendaManager {
         System.out.println("Topic was added!");
     }
 
-    // MODIFIES: course
+    // MODIFIES: this
     // EFFECTS: removes a topic from topics of course
     private void removeTopic() {
         System.out.println("Enter the name of the topic you want to remove: ");
@@ -104,8 +104,8 @@ public class CourseManager extends AgendaManager {
         }
     }
 
-    // MODIFIES: topic
-    // EFFECTS: completes a question for the topic selected by user
+    // MODIFIES: this
+    // EFFECTS: completes a question for the selected topic of course
     private void completeTopicQuestion() {
         System.out.println("Enter the name of the topic for which you will complete a question: ");
         String topicName = input.next();

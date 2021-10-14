@@ -76,7 +76,7 @@ public class ClubManager extends AgendaManager {
         }
     }
 
-    // MODIFIES: club
+    // MODIFIES: this
     // EFFECTS: adds a reminder to reminders of club
     private void addReminder() {
         System.out.println("Enter your reminder: ");
@@ -85,7 +85,7 @@ public class ClubManager extends AgendaManager {
         System.out.println("Reminder was added!");
     }
 
-    // MODIFIES: club
+    // MODIFIES: this
     // EFFECTS: removes a reminder from the reminders in club
     private void removeReminder() {
         System.out.println("Enter the position of the reminder you want to remove: ");
