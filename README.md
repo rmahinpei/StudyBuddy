@@ -22,3 +22,5 @@ learning more efficient, and hopefully reduce their exam-related stress.
 - I want to add multiple Topics to my Courses.
 - I want to keep track of the number of practice questions I have completed for a Topic.
 - I want to keep track of the number of practice questions I need to complete for a Topic.
+- I want to save my courses and clubs to file.
+- I want to reload my courses and clubs from file.
