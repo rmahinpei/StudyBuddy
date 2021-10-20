@@ -16,6 +16,19 @@ public class Topic {
         numRemaining = MIN_QUESTIONS_TO_COMPLETE;
     }
 
+    // EFFECTS: creates a topic with given name and the given number of completed practice questions
+    //          if numCompleted >= MIN_QUESTIONS_TO_COMPLETE, numRemaining is set to 0
+    //          else, numRemaining is set to MIN_QUESTIONS_TO_COMPLETE - numCompleted
+    public Topic(String name, int numCompleted) {
+        this.name = name;
+        this.numCompleted = numCompleted;
+        if (numCompleted >= MIN_QUESTIONS_TO_COMPLETE) {
+            numRemaining = 0;
+        } else {
+            numRemaining = MIN_QUESTIONS_TO_COMPLETE - numCompleted;
+        }
+    }
+
     // GETTER
     public String getTopicName() {
         return name;

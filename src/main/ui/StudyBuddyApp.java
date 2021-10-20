@@ -29,12 +29,18 @@ public class StudyBuddyApp {
         System.out.println("Hi there! Let's take your time management to the next level.");
         while (keepRunning) {
             System.out.println("\nSelect from the following options:");
-            System.out.println("A -> to see your courses");
-            System.out.println("B -> to see your clubs");
-            System.out.println("C -> to quit application");
+            System.out.println("A -> to see your courses\nB -> to see your clubs\nC -> to quit application");
             command = input.next();
             command = command.toUpperCase();
             if (command.equals("C")) {
+                System.out.println("Want to save your edits before you quit?");
+                System.out.println("Enter Yes or No: ");
+                command = input.next();
+                command = command.toUpperCase();
+                if (command.equals("YES")) {
+                    clubsManager.saveClubs();
+                    System.out.println("Saved all your edits!");
+                }
                 System.out.println("See you next time!");
                 keepRunning = false;
             } else {

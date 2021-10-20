@@ -2,7 +2,6 @@ package ui;
 
 import model.Club;
 import model.Date;
-import model.Topic;
 
 // Manages a club stored in StudyBuddy application
 public class ClubManager extends AgendaManager {

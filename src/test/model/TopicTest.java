@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TopicTest {
     Topic t1;
+    Topic t2;
 
     @BeforeEach
     public void setUp() {
@@ -13,10 +14,24 @@ public class TopicTest {
     }
 
     @Test
-    public void testConstructor() {
+    public void testSingleParamConstructor() {
         assertEquals("Surface sketching", t1.getTopicName());
         assertEquals(0, t1.getNumCompleted());
         assertEquals(3, t1.getNumRemaining());
+    }
+
+    @Test
+    public void testTwoParamConstructorMoreCompletedThanMin() {
+        t2 = new Topic("Derivatives", 5);
+        assertEquals(5, t2.getNumCompleted());
+        assertEquals(0, t2.getNumRemaining());
+    }
+
+    @Test
+    public void testTwoParamConstructorLessCompletedThanMin() {
+        t2 = new Topic("Derivatives", 1);
+        assertEquals(1, t2.getNumCompleted());
+        assertEquals(2, t2.getNumRemaining());
     }
 
     @Test

@@ -1,5 +1,6 @@
 package ui;
 
+import model.Club;
 import model.Course;
 
 import java.util.ArrayList;

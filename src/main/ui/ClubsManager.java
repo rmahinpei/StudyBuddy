@@ -1,22 +1,43 @@
 package ui;
 
 import model.Club;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.ClubsJsonReader;
+import persistence.JsonWriter;
+import persistence.Writable;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // Manages clubs stored in StudyBuddy application
-public class ClubsManager implements AgendasManager {
+public class ClubsManager extends Writable implements AgendasManager {
+    private static final String JSON_STORE = "./data/clubs.json";
+    private JsonWriter jsonWriter;
+    private ClubsJsonReader jsonReader;
     private List<Club> clubs;
     private Scanner input;
     private ClubManager clubManager;
 
-    // EFFECTS: creates a ClubsManager with an empty clubs list, a scanner, and a ClubManager
+    // EFFECTS: creates a ClubsManager; if there are clubs saved to file, it adds them clubs
+    //          otherwise, it creates an empty list of clubs
     public ClubsManager() {
         clubs = new ArrayList<>();
         input = new Scanner(System.in);
         clubManager = new ClubManager();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new ClubsJsonReader(JSON_STORE);
+        try {
+            List<Club> savedClubs = jsonReader.readClubs();
+            if (!savedClubs.isEmpty()) {
+                clubs.addAll(savedClubs);
+            }
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     @Override
@@ -71,7 +92,7 @@ public class ClubsManager implements AgendasManager {
         if (clubs.isEmpty()) {
             System.out.println("You currently don't have any clubs to view.");
         } else {
-            System.out.println("Enter the name of the course you want to view: ");
+            System.out.println("Enter the name of the club you want to view: ");
             String clubName = input.next();
             for (Club c : clubs) {
                 if (c.getName().equals(clubName)) {
@@ -106,4 +127,45 @@ public class ClubsManager implements AgendasManager {
             }
         }
     }
+
+    // EFFECTS: saves all clubs in ClubManager to file
+    public void saveClubs() {
+        JSONObject json = new JSONObject();
+        json.put("clubs", clubsToJson());
+        try {
+            jsonWriter.open();
+            jsonWriter.saveToFile(json);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: creates a JSONArray of JSONObjects that represent clubs
+    private JSONArray clubsToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Club c : clubs) {
+            jsonArray.put(clubToJson(c));
+        }
+        return jsonArray;
+    }
+
+    // EFFECTS: creates a JSONObject representing a club
+    private JSONObject clubToJson(Club c) {
+        JSONObject json = new JSONObject();
+        json.put("name", c.getName());
+        json.put("dates", datesToJson(c));
+        json.put("reminders", remindersToJson(c));
+        return json;
+    }
+
+    // EFFECTS: creates a JSONArray of strings that represent reminders of a club
+    private JSONArray remindersToJson(Club c) {
+        JSONArray jsonArray = new JSONArray();
+        for (String r : c.getReminders()) {
+            jsonArray.put(r);
+        }
+        return jsonArray;
+    }
+
 }
