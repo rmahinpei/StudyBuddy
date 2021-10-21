@@ -23,7 +23,7 @@ public class ClubsJsonReaderTest extends JsonTest {
 
     @Test
     public void testReaderEmptyClubsList() {
-        ClubsJsonReader reader = new ClubsJsonReader("./data/testReaderEmptyClubsList.json");
+        ClubsJsonReader reader = new ClubsJsonReader("./data/testReaderEmptyListClubs.json");
         try {
             List<Club> clubs = reader.readClubs();
             assertEquals(0, clubs.size());
@@ -34,7 +34,7 @@ public class ClubsJsonReaderTest extends JsonTest {
 
     @Test
     void testReaderGeneralClubsList() {
-        ClubsJsonReader reader = new ClubsJsonReader("./data/testReaderGeneralClubsList.json");
+        ClubsJsonReader reader = new ClubsJsonReader("./data/testReaderGeneralListClubs.json");
         try {
             List<Club> clubs = reader.readClubs();
             assertEquals(2, clubs.size());

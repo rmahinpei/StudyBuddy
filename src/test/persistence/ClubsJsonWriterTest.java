@@ -30,12 +30,12 @@ public class ClubsJsonWriterTest extends JsonTest {
     @Test
     public void testWriterEmptyClubsList() {
         try {
-            ClubsJsonWriter writer = new ClubsJsonWriter("./data/testWriterEmptyClubsList.json");
+            ClubsJsonWriter writer = new ClubsJsonWriter("./data/testWriterEmptyListClubs.json");
             writer.open();
             writer.writeClubs(new ArrayList<>());
             writer.close();
 
-            ClubsJsonReader reader = new ClubsJsonReader("./data/testWriterEmptyClubsList.json");
+            ClubsJsonReader reader = new ClubsJsonReader("./data/testWriterEmptyListClubs.json");
             List<Club> clubs = reader.readClubs();
             assertEquals(0, clubs.size());
         } catch (IOException e) {
@@ -48,12 +48,12 @@ public class ClubsJsonWriterTest extends JsonTest {
         try {
             List<Club> clubsToWrite = makeListOfClubs();
 
-            ClubsJsonWriter writer = new ClubsJsonWriter("./data/testWriterGeneralClubsList.json");
+            ClubsJsonWriter writer = new ClubsJsonWriter("./data/testWriterGeneralListClubs.json");
             writer.open();
             writer.writeClubs(clubsToWrite);
             writer.close();
 
-            ClubsJsonReader reader = new ClubsJsonReader("./data/testWriterGeneralClubsList.json");
+            ClubsJsonReader reader = new ClubsJsonReader("./data/testWriterGeneralListClubs.json");
             List<Club> clubsToRead = reader.readClubs();
 
             assertEquals(2, clubsToRead.size());
