@@ -1,0 +1,22 @@
+{"clubs": [
+    {
+        "reminders": ["Volunteer"],
+        "name": "nwPlus",
+        "dates": [{
+            "month": 4,
+            "year": 2022,
+            "type": "EXAM",
+            "day": 12
+        }]
+    },
+    {
+        "reminders": ["Work"],
+        "name": "HackerNoon",
+        "dates": [{
+            "month": 5,
+            "year": 2023,
+            "type": "MEETING",
+            "day": 13
+        }]
+    }
+]}

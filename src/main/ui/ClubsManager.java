@@ -1,11 +1,8 @@
 package ui;
 
 import model.Club;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import persistence.ClubsJsonReader;
-import persistence.JsonWriter;
-import persistence.Writable;
+import persistence.ClubsJsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,9 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 // Manages clubs stored in StudyBuddy application
-public class ClubsManager extends Writable implements AgendasManager {
+public class ClubsManager implements AgendasManager {
     private static final String JSON_STORE = "./data/clubs.json";
-    private JsonWriter jsonWriter;
+    private ClubsJsonWriter jsonWriter;
     private ClubsJsonReader jsonReader;
     private List<Club> clubs;
     private Scanner input;
@@ -28,7 +25,7 @@ public class ClubsManager extends Writable implements AgendasManager {
         clubs = new ArrayList<>();
         input = new Scanner(System.in);
         clubManager = new ClubManager();
-        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonWriter = new ClubsJsonWriter(JSON_STORE);
         jsonReader = new ClubsJsonReader(JSON_STORE);
         try {
             List<Club> savedClubs = jsonReader.readClubs();
@@ -130,42 +127,13 @@ public class ClubsManager extends Writable implements AgendasManager {
 
     // EFFECTS: saves all clubs in ClubManager to file
     public void saveClubs() {
-        JSONObject json = new JSONObject();
-        json.put("clubs", clubsToJson());
         try {
             jsonWriter.open();
-            jsonWriter.saveToFile(json);
+            jsonWriter.writeClubs(clubs);
             jsonWriter.close();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
-    }
-
-    // EFFECTS: creates a JSONArray of JSONObjects that represent clubs
-    private JSONArray clubsToJson() {
-        JSONArray jsonArray = new JSONArray();
-        for (Club c : clubs) {
-            jsonArray.put(clubToJson(c));
-        }
-        return jsonArray;
-    }
-
-    // EFFECTS: creates a JSONObject representing a club
-    private JSONObject clubToJson(Club c) {
-        JSONObject json = new JSONObject();
-        json.put("name", c.getName());
-        json.put("dates", datesToJson(c));
-        json.put("reminders", remindersToJson(c));
-        return json;
-    }
-
-    // EFFECTS: creates a JSONArray of strings that represent reminders of a club
-    private JSONArray remindersToJson(Club c) {
-        JSONArray jsonArray = new JSONArray();
-        for (String r : c.getReminders()) {
-            jsonArray.put(r);
-        }
-        return jsonArray;
     }
 
 }
