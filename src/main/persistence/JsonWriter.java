@@ -5,6 +5,8 @@ import model.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+// Represents a writer that writes JSON representations of agenda (clubs or courses) to file
+// Modelled using UBC CPSC 210's JSONSerializationDemo
 public abstract class JsonWriter {
     // EFFECTS: creates a JSONArray of JSONObjects that represent dates
     protected JSONArray datesToJson(Agenda c) {

@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Modelled using UBC CPSC 210's JSONSerializationDemo
 public class ClubsJsonWriterTest extends JsonTest {
     Club c1;
     Club c2;
@@ -27,7 +28,7 @@ public class ClubsJsonWriterTest extends JsonTest {
     }
 
     @Test
-    public void testWriterEmptyListOfClubs() {
+    public void testWriterEmptyClubsList() {
         try {
             ClubsJsonWriter writer = new ClubsJsonWriter("./data/testWriterEmptyClubsList.json");
             writer.open();
@@ -43,7 +44,7 @@ public class ClubsJsonWriterTest extends JsonTest {
     }
 
     @Test
-    public void testWriterGeneralListOfClubs() {
+    public void testWriterGeneralClubsList() {
         try {
             List<Club> clubsToWrite = makeListOfClubs();
 

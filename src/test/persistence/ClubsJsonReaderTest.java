@@ -8,9 +8,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// Modelled using UBC CPSC 210's JSONSerializationDemo
 public class ClubsJsonReaderTest extends JsonTest {
     @Test
-    public void testReaderNonExistentFile() {
+    public void testReaderInvalidFile() {
         ClubsJsonReader reader = new ClubsJsonReader("./data/invalidFile.json");
         try {
             List<Club> clubs = reader.readClubs();
@@ -32,7 +33,7 @@ public class ClubsJsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderGeneralWorkRoom() {
+    void testReaderGeneralClubsList() {
         ClubsJsonReader reader = new ClubsJsonReader("./data/testReaderGeneralClubsList.json");
         try {
             List<Club> clubs = reader.readClubs();

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Represents a reader that reads clubs from JSON data stored in file
+// Modelled using UBC CPSC 210's JSONSerializationDemo
 public class ClubsJsonReader extends JsonReader {
     private String source;
 
@@ -29,12 +30,11 @@ public class ClubsJsonReader extends JsonReader {
     // EFFECTS: adds parsed clubs to a list and returns list
     private List<Club> parseClubs(JSONObject jsonObject) {
         List<Club> clubs = new ArrayList<>();
-        if (!jsonObject.isEmpty()) {
-            JSONArray jsonClubs = jsonObject.getJSONArray("clubs");
-            for (Object jsonClub : jsonClubs) {
-                clubs.add(parseClub((JSONObject) jsonClub));
-            }
+        JSONArray jsonClubs = jsonObject.getJSONArray("clubs");
+        for (Object jsonClub : jsonClubs) {
+            clubs.add(parseClub((JSONObject) jsonClub));
         }
+
         return clubs;
     }
 
