@@ -37,7 +37,7 @@ public abstract class JsonReader {
         return dates;
     }
 
-    // EFFECTS: parses dates and return its
+    // EFFECTS: parses dates and return it
     protected Date parseDate(JSONObject json) {
         int year = json.getInt("year");
         int month = json.getInt("month");

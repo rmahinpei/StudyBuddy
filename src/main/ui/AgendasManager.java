@@ -10,4 +10,6 @@ public interface AgendasManager {
     void addAgendaToAgendas();
 
     void removeAgendaFromAgendas();
+
+    void saveAgendas();
 }

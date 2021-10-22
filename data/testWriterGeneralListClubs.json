@@ -1,6 +1,9 @@
 {"clubs": [
     {
-        "reminders": ["Volunteer"],
+        "reminders": [
+            "Volunteer",
+            "Write"
+        ],
         "name": "nwPlus",
         "dates": [{
             "month": 4,

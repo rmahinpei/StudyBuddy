@@ -33,12 +33,12 @@ public class StudyBuddyApp {
             command = input.next();
             command = command.toUpperCase();
             if (command.equals("C")) {
-                System.out.println("Want to save your edits before you quit?");
-                System.out.println("Enter Yes or No: ");
+                System.out.println("Want to save your edits before you quit?\nEnter Yes or No: ");
                 command = input.next();
                 command = command.toUpperCase();
                 if (command.equals("YES")) {
-                    clubsManager.saveClubs();
+                    clubsManager.saveAgendas();
+                    coursesManager.saveAgendas();
                     System.out.println("Saved all your edits!");
                 }
                 System.out.println("See you next time!");

@@ -58,12 +58,13 @@ public class ClubsJsonWriterTest extends JsonTest {
 
             assertEquals(2, clubsToRead.size());
 
-            checkClub("nwPlus", 1, 1, clubsToRead.get(0));
-            assertTrue(clubsToRead.get(0).getReminders().get(0).contains("Volunteer"));
+            checkClub("nwPlus", 2, 1, clubsToRead.get(0));
+            assertEquals("Volunteer", clubsToRead.get(0).getReminders().get(0));
+            assertEquals("Write", clubsToRead.get(0).getReminders().get(1));
             checkDate(2022, 4, 12, "EXAM", clubsToRead.get(0).getDates().get(0));
 
             checkClub("HackerNoon", 1, 1, clubsToRead.get(1));
-            assertTrue(clubsToRead.get(1).getReminders().get(0).contains("Work"));
+            assertEquals("Work", clubsToRead.get(1).getReminders().get(0));
             checkDate(2023, 5, 13, "MEETING", clubsToRead.get(1).getDates().get(0));
         } catch (IOException e) {
             fail("No exception expected");
@@ -75,6 +76,7 @@ public class ClubsJsonWriterTest extends JsonTest {
         c1 = new Club("nwPlus");
         c1.addDate(new Date(2022, 4, 12, DateType.EXAM));
         c1.addReminder("Volunteer");
+        c1.addReminder("Write");
 
         c2 = new Club("HackerNoon");
         c2.addDate(new Date(2023, 5, 13, DateType.MEETING));

@@ -125,8 +125,9 @@ public class ClubsManager implements AgendasManager {
         }
     }
 
-    // EFFECTS: saves all clubs in ClubManager to file
-    public void saveClubs() {
+    @Override
+    // EFFECTS: saves all clubs in ClubsManager to file
+    public void saveAgendas() {
         try {
             jsonWriter.open();
             jsonWriter.writeClubs(clubs);

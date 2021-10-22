@@ -17,8 +17,8 @@ public class CourseTest extends AgendaTest {
         c1.addDate(d1);
         c1.addDate(d2);
 
-        c2.addTopic("Surface sketching");
-        c2.addTopic("Partial derivatives");
+        c2.addTopic(new Topic("Surface sketching"));
+        c2.addTopic(new Topic("Partial derivatives", 1));
     }
 
     @Test
@@ -32,7 +32,10 @@ public class CourseTest extends AgendaTest {
     public void testAddTopic() {
         assertEquals(2, c2.getTopics().size());
         assertEquals("Surface sketching", c2.getTopics().get(0).getTopicName());
+
         assertEquals("Partial derivatives", c2.getTopics().get(1).getTopicName());
+        assertEquals(1, c2.getTopics().get(1).getNumCompleted());
+        assertEquals(3 - 1, c2.getTopics().get(1).getNumRemaining());
     }
 
     @Test

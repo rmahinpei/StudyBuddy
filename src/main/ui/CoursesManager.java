@@ -1,23 +1,40 @@
 package ui;
 
-import model.Club;
 import model.Course;
+import persistence.CoursesJsonReader;
+import persistence.CoursesJsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // Manages courses stored in StudyBuddy application
 public class CoursesManager implements AgendasManager {
+    private static final String JSON_STORE = "./data/courses.json";
+    private CoursesJsonWriter jsonWriter;
+    private CoursesJsonReader jsonReader;
     private List<Course> courses;
     private Scanner input;
     private CourseManager courseManager;
 
-    // EFFECTS: creates a CoursesManager with an empty courses list, a scanner, and a CourseManager
+    // EFFECTS: creates a CoursesManager; if there are courses saved to file, it adds them courses
+    //          otherwise, it creates an empty list of courses
     public CoursesManager() {
         courses = new ArrayList<>();
         input = new Scanner(System.in);
         courseManager = new CourseManager();
+        jsonWriter = new CoursesJsonWriter(JSON_STORE);
+        jsonReader = new CoursesJsonReader(JSON_STORE);
+        try {
+            List<Course> savedCourses = jsonReader.readCourses();
+            if (!savedCourses.isEmpty()) {
+                courses.addAll(savedCourses);
+            }
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     @Override
@@ -105,6 +122,18 @@ public class CoursesManager implements AgendasManager {
                 System.out.println("Course was removed!");
                 break;
             }
+        }
+    }
+
+    @Override
+    // EFFECTS: saves all courses in CoursesManager to file
+    public void saveAgendas() {
+        try {
+            jsonWriter.open();
+            jsonWriter.writeCourses(courses);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 }

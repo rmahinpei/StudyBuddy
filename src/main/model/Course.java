@@ -19,9 +19,8 @@ public class Course extends Agenda {
     }
 
     // MODIFIES: this
-    // EFFECTS: creates a topic with given name and adds it to the end of topics
-    public void addTopic(String topicName) {
-        Topic t = new Topic(topicName);
+    // EFFECTS: adds topic to the end of topics
+    public void addTopic(Topic t) {
         topics.add(t);
     }
 
