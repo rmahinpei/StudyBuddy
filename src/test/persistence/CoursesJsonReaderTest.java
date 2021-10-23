@@ -33,7 +33,7 @@ public class CoursesJsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderGeneralClubsList() {
+    void testReaderGeneralCoursesList() {
         CoursesJsonReader reader = new CoursesJsonReader("./data/testReaderGeneralListCourses.json");
         try {
             List<Course> courses = reader.readCourses();

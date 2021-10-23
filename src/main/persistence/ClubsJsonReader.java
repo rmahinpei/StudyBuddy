@@ -38,7 +38,7 @@ public class ClubsJsonReader extends JsonReader {
         return clubs;
     }
 
-    // EFFECTS: parses clubs from JSONObject and returns them
+    // EFFECTS: parses a club from JSONObject and returns it
     private Club parseClub(JSONObject json) {
         String name = json.getString("name");
         List<String> reminders = parseReminders(json.getJSONArray("reminders"));

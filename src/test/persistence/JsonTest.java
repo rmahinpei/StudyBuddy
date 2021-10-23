@@ -7,7 +7,7 @@ import model.Topic;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// Contains a series of helper methods for test classes
+// Contains a series of helper methods for persistence test classes
 public class JsonTest {
     protected void checkClub(String name, int numReminders, int numDates, Club c) {
         assertEquals(name, c.getName());

@@ -36,7 +36,7 @@ public class CoursesJsonReader extends JsonReader {
         return courses;
     }
 
-    // EFFECTS: parses courses from JSONObject and returns them
+    // EFFECTS: parses a course from JSONObject and returns it
     private Course parseCourse(JSONObject json) {
         String name = json.getString("name");
         List<Topic> topics = parseTopics(json.getJSONArray("topics"));
@@ -51,7 +51,7 @@ public class CoursesJsonReader extends JsonReader {
         return course;
     }
 
-    // EFFECTS: parses club topics from JSONObject and returns them
+    // EFFECTS: parses course topics from JSONObject and returns them
     private List<Topic> parseTopics(JSONArray jsonArray) {
         List<Topic> topics = new ArrayList<>();
         for (int count = 0; count < jsonArray.length(); count++) {
@@ -61,7 +61,7 @@ public class CoursesJsonReader extends JsonReader {
         return topics;
     }
 
-    // EFFECTS: parses topic and return it
+    // EFFECTS: parses course topic and return it
     private Topic parseTopic(JSONObject json) {
         String name = json.getString("name");
         int numCompleted = json.getInt("numCompleted");

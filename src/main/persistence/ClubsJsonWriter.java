@@ -1,8 +1,6 @@
 package persistence;
 
-import model.Agenda;
 import model.Club;
-import model.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
