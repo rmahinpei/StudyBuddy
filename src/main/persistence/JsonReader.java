@@ -16,6 +16,12 @@ import java.util.stream.Stream;
 // Represents a reader that reads agendas (clubs or courses) from JSON data stored in file
 // Modelled using UBC CPSC 210's JSONSerializationDemo
 public abstract class JsonReader {
+    protected String source;
+
+    public JsonReader(String source) {
+        this.source = source;
+    }
+
     // EFFECTS: reads source file as string and returns it
     protected String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();

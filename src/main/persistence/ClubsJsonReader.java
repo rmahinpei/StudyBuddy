@@ -12,11 +12,9 @@ import java.util.List;
 // Represents a reader that reads clubs from JSON data stored in file
 // Modelled using UBC CPSC 210's JSONSerializationDemo
 public class ClubsJsonReader extends JsonReader {
-    private String source;
-
     // EFFECTS: constructs reader to read from source file
     public ClubsJsonReader(String source) {
-        this.source = source;
+        super(source);
     }
 
     // EFFECTS: reads clubs from file and returns the list of clubs;

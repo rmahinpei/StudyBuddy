@@ -30,5 +30,21 @@
             "type": "MEETING",
             "day": 13
         }]
+    },
+    {
+        "topics": [{
+            "numCompleted": 1,
+            "name": "Matrices"
+        }],
+        "name": "MATH221",
+        "dates": []
+    },
+    {
+        "topics": [{
+            "numCompleted": 0,
+            "name": "Sampling"
+        }],
+        "name": "STAT200",
+        "dates": []
     }
 ]}

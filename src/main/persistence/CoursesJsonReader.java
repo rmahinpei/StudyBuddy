@@ -11,11 +11,9 @@ import java.util.List;
 // Represents a reader that reads courses from JSON data stored in file
 // Modelled using UBC CPSC 210's JSONSerializationDemo
 public class CoursesJsonReader extends JsonReader {
-    private String source;
-
     // EFFECTS: constructs reader to read from source file
     public CoursesJsonReader(String source) {
-        this.source = source;
+        super(source);
     }
 
     // EFFECTS: reads courses from file and returns the list of courses;

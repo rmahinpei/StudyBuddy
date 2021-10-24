@@ -1,5 +1,27 @@
-{"clubs": [{
-    "reminders": [],
-    "name": "nwPlus",
-    "dates": []
-}]}
+{"clubs": [
+    {
+        "reminders": [],
+        "name": "nwPlus",
+        "dates": [{
+            "month": 12,
+            "year": 2020,
+            "type": "EXAM",
+            "day": 12
+        }]
+    },
+    {
+        "reminders": [],
+        "name": "HackerNoon",
+        "dates": [{
+            "month": 12,
+            "year": 2022,
+            "type": "MEETING",
+            "day": 12
+        }]
+    },
+    {
+        "reminders": [],
+        "name": "MathClub",
+        "dates": []
+    }
+]}

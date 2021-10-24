@@ -4,40 +4,14 @@ import model.Club;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.List;
 
 // Represents a writer that writes JSON representations of clubs to file
 // Modelled using UBC CPSC 210's JSONSerializationDemo
 public class ClubsJsonWriter extends JsonWriter {
-    private PrintWriter writer;
-    private String destination;
-    private static final int TAB = 4;
-
     // EFFECTS: constructs a writer to write to destination file
     public ClubsJsonWriter(String destination) {
-        this.destination = destination;
-    }
-
-    // MODIFIES: this
-    // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
-    // be opened for writing
-    public void open() throws FileNotFoundException {
-        writer = new PrintWriter(new File(destination));
-    }
-
-    // MODIFIES: this
-    // EFFECTS: closes writer
-    public void close() {
-        writer.close();
-    }
-
-    // MODIFIES: this
-    // EFFECTS: writes string to file
-    protected void saveToFile(String json) {
-        writer.print(json);
+        super(destination);
     }
 
     // MODIFIES: this
