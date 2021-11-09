@@ -1,50 +1,10 @@
-{"courses": [
-    {
-        "topics": [
-            {
-                "numCompleted": 0,
-                "name": "Abstraction"
-            },
-            {
-                "numCompleted": 1,
-                "name": "Construction"
-            }
-        ],
-        "name": "CPSC210",
-        "dates": [{
-            "month": 4,
-            "year": 2022,
-            "type": "EXAM",
-            "day": 12
-        }]
-    },
-    {
-        "topics": [{
-            "numCompleted": 2,
-            "name": "Derivatives"
-        }],
-        "name": "MATH200",
-        "dates": [{
-            "month": 5,
-            "year": 2023,
-            "type": "MEETING",
-            "day": 13
-        }]
-    },
-    {
-        "topics": [{
-            "numCompleted": 1,
-            "name": "Matrices"
-        }],
-        "name": "MATH221",
-        "dates": []
-    },
-    {
-        "topics": [{
-            "numCompleted": 0,
-            "name": "Sampling"
-        }],
-        "name": "STAT200",
-        "dates": []
-    }
-]}
+{"courses": [{
+    "topics": [],
+    "name": "CPSC210",
+    "dates": [{
+        "month": 12,
+        "year": 2021,
+        "type": "EXAM",
+        "day": 12
+    }]
+}]}
