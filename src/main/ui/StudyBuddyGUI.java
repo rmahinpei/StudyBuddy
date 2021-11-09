@@ -1,12 +1,17 @@
 package ui;
 
 import model.Course;
+import persistence.CoursesJsonReader;
+import persistence.CoursesJsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 // Represents StudyBuddy's main window
 public class StudyBuddyGUI extends JFrame implements ActionListener {
@@ -14,6 +19,9 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     public static final int WINDOW_HEIGHT = 600;
     public static final int ELEMENT_HEIGHT = 30;
     public static final int VERTICAL_GAP = 30;
+    private static final String JSON_STORE = "./data/courses.json";
+    private CoursesJsonWriter jsonWriter;
+    private CoursesJsonReader jsonReader;
     private JPanel topPanel;
     private JPanel bottomPanel;
     private JPanel centrePanel;
@@ -21,16 +29,18 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     private JButton addButton;
     private JButton removeButton;
     private JButton viewButton;
-    private JButton loadCourses;
-    private JButton saveChanges;
+    private JButton loadButton;
+    private JButton saveButton;
     private ArrayList<Course> courses;
     private ArrayList<JLabel> courseLabels;
 
     // EFFECTS: sets up main frame and its top, bottom, and centre panels along with
-    //          an ArrayList for courses and course labels
+    //          an ArrayList for courses and course labels and a CoursesJsonWriter and a CoursesJsonReader
     public StudyBuddyGUI() {
         courses = new ArrayList<>();
         courseLabels = new ArrayList<>();
+        jsonWriter = new CoursesJsonWriter(JSON_STORE);
+        jsonReader = new CoursesJsonReader(JSON_STORE);
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         centrePanel = new JPanel();
@@ -116,13 +126,16 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     // MODIFIES: this
     // EFFECTS: adds button to BottomPanel
     private void setBottomPanelButtons() {
-        loadCourses = new JButton("Load Courses");
-        saveChanges = new JButton("Save Changes");
-        loadCourses.setBounds(50, 10, 150, ELEMENT_HEIGHT);
-        saveChanges.setBounds(220, 10, 150, ELEMENT_HEIGHT);
+        loadButton = new JButton("Load Courses");
+        loadButton.setBounds(50, 10, 150, ELEMENT_HEIGHT);
+        loadButton.addActionListener(this);
 
-        bottomPanel.add(loadCourses);
-        bottomPanel.add(saveChanges);
+        saveButton = new JButton("Save Changes");
+        saveButton.setBounds(220, 10, 150, ELEMENT_HEIGHT);
+        saveButton.addActionListener(this);
+
+        bottomPanel.add(loadButton);
+        bottomPanel.add(saveButton);
     }
 
     // MODIFIES: this
@@ -144,6 +157,10 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
             handleRemoveButtonAction();
         } else if (e.getSource() == viewButton) {
             handleViewButtonAction();
+        } else if (e.getSource() == loadButton) {
+            handleLoadButtonAction();
+        } else if (e.getSource() == saveButton) {
+            handleSaveButtonAction();
         }
         setVisible(true);
     }
@@ -182,6 +199,35 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
         courseWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         courseWindow.setResizable(false);
         courseWindow.setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: all courses saved to file to courses and creates a corresponding JLabel for each course
+    //          while also displaying the label on centrePanel
+    private void handleLoadButtonAction() {
+        try {
+            List<Course> savedCourses = jsonReader.readCourses();
+            for (Course c : savedCourses) {
+                courses.add(c);
+                JLabel newCourseLabel = new JLabel((c.getName()));
+                courseLabels.add(newCourseLabel);
+                centrePanel.add(newCourseLabel);
+            }
+            loadButton.setEnabled(false);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: saves all courses in courses to file
+    private void handleSaveButtonAction() {
+        try {
+            jsonWriter.open();
+            jsonWriter.writeCourses(courses);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 
     // EFFECTS: starts the application

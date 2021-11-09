@@ -1,10 +1,5 @@
 {"courses": [{
     "topics": [],
-    "name": "CPSC210",
-    "dates": [{
-        "month": 12,
-        "year": 2021,
-        "type": "EXAM",
-        "day": 12
-    }]
+    "name": "MATH 200",
+    "dates": []
 }]}
