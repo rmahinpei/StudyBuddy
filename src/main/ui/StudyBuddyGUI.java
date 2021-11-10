@@ -15,10 +15,10 @@ import java.util.List;
 
 // Represents StudyBuddy's main window
 public class StudyBuddyGUI extends JFrame implements ActionListener {
-    public static final int WINDOW_WIDTH = 420;
-    public static final int WINDOW_HEIGHT = 600;
-    public static final int ELEMENT_HEIGHT = 30;
-    public static final int VERTICAL_GAP = 30;
+    private static final int WINDOW_WIDTH = 420;
+    private static final int WINDOW_HEIGHT = 600;
+    private static final int ELEMENT_HEIGHT = 30;
+    private static final int VERTICAL_GAP = 30;
     private static final String JSON_STORE = "./data/courses.json";
     private CoursesJsonWriter jsonWriter;
     private CoursesJsonReader jsonReader;
@@ -31,8 +31,8 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     private JButton viewButton;
     private JButton loadButton;
     private JButton saveButton;
-    private ArrayList<Course> courses;
-    private ArrayList<JLabel> courseLabels;
+    private List<Course> courses;
+    private List<JLabel> courseLabels;
 
     // EFFECTS: sets up main frame and its top, bottom, and centre panels along with
     //          an ArrayList for courses and course labels and a CoursesJsonWriter and a CoursesJsonReader
@@ -191,14 +191,18 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
         }
     }
 
-    // EFFECTS: opens a new window corresponding to the Course inputted by user
+    // EFFECTS: opens a new CourseGUI window corresponding to the Course inputted by user
     private void handleViewButtonAction() {
-        JFrame courseWindow = new JFrame();
-        courseWindow.setTitle(userText.getText());
-        courseWindow.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        courseWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        courseWindow.setResizable(false);
-        courseWindow.setVisible(true);
+        Course userCourse = null;
+        for (Course c : courses) {
+            if (c.getName().equals(userText.getText())) {
+                userCourse = c;
+                break;
+            }
+        }
+        if (userCourse != null) {
+            JFrame courseWindow = new CourseGUI(userCourse);
+        }
     }
 
     // MODIFIES: this
