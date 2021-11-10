@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Represents a window displaying info associated with a particular course
-// Note that the image used in GUI was obtained from flaticon.com
+// Note that the image used in this GUI was obtained from flaticon.com
 public class CourseGUI extends JFrame implements ActionListener {
     private Course course;
     private static final int WINDOW_WIDTH = 420;
@@ -80,7 +80,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds buttons to TopPanel
+    // EFFECTS: adds add, remove and complete buttons to TopPanel
     private void setTopPanelButtons() {
         addButton = new JButton("Add");
         addButton.setBounds(85, 10 + VERTICAL_GAP, 120, ELEMENT_HEIGHT);
@@ -103,7 +103,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     // EFFECTS: sets up CentrePanel of frame
     private void setCentrePanel() {
         centrePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
-        centrePanel.setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT - 150 - 110));
+        centrePanel.setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT - 160 - 110));
         for (Topic t : topics) {
             JLabel newTopicLabel = new JLabel(getTopicInfo(t));
             newTopicLabel.setName(t.getTopicName());
@@ -124,7 +124,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     // EFFECTS: sets up BottomPanel of frame
     private void setBottomPanel() {
         bottomPanel.setLayout(new BorderLayout());
-        bottomPanel.setPreferredSize(new Dimension(WINDOW_WIDTH, 150));
+        bottomPanel.setPreferredSize(new Dimension(WINDOW_WIDTH, 160));
 
         yayLabel = new JLabel("GOOD JOB!");
         yayLabel.setFont(new Font("Default", Font.BOLD, 14));
@@ -189,6 +189,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     // MODIFIES: this
     // EFFECTS: completes a question for the topic corresponding to user's input and updates
     //          the JLabel corresponding to the topic to show that a question was completed
+    //          while also displaying a "celebration" image to congratulate the user
     private void handleCompleteButtonAction() {
         Topic userTopic = null;
         for (Topic t : topics) {

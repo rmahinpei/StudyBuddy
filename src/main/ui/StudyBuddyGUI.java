@@ -92,7 +92,7 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds buttons to TopPanel
+    // EFFECTS: adds add, remove, and view buttons to TopPanel
     private void setTopPanelButtons() {
         addButton = new JButton("Add");
         addButton.setBounds(10, 10 + 2 * VERTICAL_GAP, 120, ELEMENT_HEIGHT);
@@ -124,7 +124,7 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds button to BottomPanel
+    // EFFECTS: adds save and load buttons to BottomPanel
     private void setBottomPanelButtons() {
         loadButton = new JButton("Load Courses");
         loadButton.setBounds(50, 10, 150, ELEMENT_HEIGHT);
@@ -206,7 +206,7 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: all courses saved to file to courses and creates a corresponding JLabel for each course
+    // EFFECTS: adds all courses saved to file to courses and creates a corresponding JLabel for each course
     //          while also displaying the label on centrePanel
     private void handleLoadButtonAction() {
         try {
