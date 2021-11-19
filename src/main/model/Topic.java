@@ -53,5 +53,6 @@ public class Topic {
         if (numRemaining > 0) {
             numRemaining--;
         }
+        EventLog.getInstance().logEvent(new Event("Completed one question for Topic: " + getTopicName()));
     }
 }

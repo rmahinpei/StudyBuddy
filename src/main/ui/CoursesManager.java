@@ -19,14 +19,18 @@ public class CoursesManager implements AgendasManager {
     private Scanner input;
     private CourseManager courseManager;
 
-    // EFFECTS: creates a CoursesManager; if there are courses saved to file, it adds them courses
-    //          otherwise, it creates an empty list of courses
+    // EFFECTS: creates a CoursesManager and creates an empty list of courses
     public CoursesManager() {
         courses = new ArrayList<>();
         input = new Scanner(System.in);
         courseManager = new CourseManager();
         jsonWriter = new CoursesJsonWriter(JSON_STORE);
         jsonReader = new CoursesJsonReader(JSON_STORE);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds courses saved to file to courses
+    public void loadSavedCourses() {
         try {
             List<Course> savedCourses = jsonReader.readCourses();
             if (!savedCourses.isEmpty()) {

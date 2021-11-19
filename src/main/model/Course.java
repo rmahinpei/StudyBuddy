@@ -22,6 +22,7 @@ public class Course extends Agenda {
     // EFFECTS: adds topic to the end of topics
     public void addTopic(Topic t) {
         topics.add(t);
+        EventLog.getInstance().logEvent(new Event("Added Topic: " + t.getTopicName()));
     }
 
     // MODIFIES: this
@@ -30,6 +31,7 @@ public class Course extends Agenda {
         for (Topic t : topics) {
             if (t.getTopicName().equals(topicName)) {
                 topics.remove(t);
+                EventLog.getInstance().logEvent(new Event("Removed Topic: " + t.getTopicName()));
                 break;
             }
         }

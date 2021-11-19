@@ -1,6 +1,7 @@
 package ui;
 
 import model.Club;
+import model.Course;
 import persistence.ClubsJsonReader;
 import persistence.ClubsJsonWriter;
 
@@ -19,14 +20,18 @@ public class ClubsManager implements AgendasManager {
     private Scanner input;
     private ClubManager clubManager;
 
-    // EFFECTS: creates a ClubsManager; if there are clubs saved to file, it adds them clubs
-    //          otherwise, it creates an empty list of clubs
+    // EFFECTS: creates a ClubsManager with an empty list of clubs
     public ClubsManager() {
         clubs = new ArrayList<>();
         input = new Scanner(System.in);
         clubManager = new ClubManager();
         jsonWriter = new ClubsJsonWriter(JSON_STORE);
         jsonReader = new ClubsJsonReader(JSON_STORE);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: adds clubs saved to file to clubs
+    public void loadSavedClubs() {
         try {
             List<Club> savedClubs = jsonReader.readClubs();
             if (!savedClubs.isEmpty()) {

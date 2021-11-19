@@ -1,1 +1,26 @@
-{"courses": []}
+{"courses": [
+    {
+        "topics": [
+            {
+                "numCompleted": 1,
+                "name": "Construction"
+            },
+            {
+                "numCompleted": 1,
+                "name": "Abstraction"
+            }
+        ],
+        "name": "CPSC 210",
+        "dates": []
+    },
+    {
+        "topics": [],
+        "name": "MATH 221",
+        "dates": []
+    },
+    {
+        "topics": [],
+        "name": "MATH 200",
+        "dates": []
+    }
+]}
