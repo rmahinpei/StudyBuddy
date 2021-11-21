@@ -26,6 +26,12 @@ public class Course extends Agenda {
     }
 
     // MODIFIES: this
+    // EFFECTS: adds all topics in given list to topics
+    public void addTopics(List<Topic> topics) {
+        this.topics.addAll(topics);
+    }
+
+    // MODIFIES: this
     // EFFECTS: removes the topic with given name from topics
     public void removeTopic(String topicName) {
         for (Topic t : topics) {

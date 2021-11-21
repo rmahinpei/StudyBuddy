@@ -2,6 +2,10 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CourseTest extends AgendaTest {
@@ -36,6 +40,23 @@ public class CourseTest extends AgendaTest {
         assertEquals("Partial derivatives", c2.getTopics().get(1).getTopicName());
         assertEquals(1, c2.getTopics().get(1).getNumCompleted());
         assertEquals(3 - 1, c2.getTopics().get(1).getNumRemaining());
+    }
+
+    @Test
+    public void testAddTopics() {
+        List<Topic> topics = new ArrayList<>();
+        topics.add(new Topic("Surface sketching"));
+        topics.add(new Topic("Partial derivatives", 1));
+
+        Course c3 = new Course("MATH200");
+        c3.addTopics(topics);
+
+        assertEquals(2, c3.getTopics().size());
+        assertEquals("Surface sketching", c3.getTopics().get(0).getTopicName());
+
+        assertEquals("Partial derivatives", c3.getTopics().get(1).getTopicName());
+        assertEquals(1, c3.getTopics().get(1).getNumCompleted());
+        assertEquals(3 - 1, c3.getTopics().get(1).getNumRemaining());
     }
 
     @Test

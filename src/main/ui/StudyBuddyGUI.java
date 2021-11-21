@@ -1,6 +1,8 @@
 package ui;
 
 import model.Course;
+import model.Event;
+import model.EventLog;
 import persistence.CoursesJsonReader;
 import persistence.CoursesJsonWriter;
 
@@ -8,6 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,12 +55,17 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
-
         setTopPanel();
         setBottomPanel();
         setCentrePanel();
-
         setVisible(true);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                printLogs();
+            }
+        });
     }
 
     // MODIFIES: this
@@ -234,9 +243,15 @@ public class StudyBuddyGUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: prints event logs to the console once the user chooses to quit app
+    private void printLogs() {
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString() + "\n");
+        }
+    }
+
     // EFFECTS: starts the application
     public static void main(String[] args) {
         new StudyBuddyGUI();
-
     }
 }

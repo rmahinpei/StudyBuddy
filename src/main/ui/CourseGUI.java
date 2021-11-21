@@ -25,19 +25,17 @@ public class CourseGUI extends JFrame implements ActionListener {
     private JButton addButton;
     private JButton removeButton;
     private JButton completeButton;
-    private List<Topic> topics;
     private List<JLabel> topicLabels;
     private JLabel yayLabel;
     private ImageIcon yayImage;
 
     // EFFECTS: sets up main frame and its top, bottom, and centre panels along with
-    //          an ArrayList for topics and topic labels
+    //          an ArrayList for topic labels
     public CourseGUI(Course course) {
         this.course = course;
         topPanel = new JPanel();
         centrePanel = new JPanel();
         bottomPanel = new JPanel();
-        topics = course.getTopics();
         topicLabels = new ArrayList<>();
 
         setTitle(course.getName());
@@ -104,7 +102,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     private void setCentrePanel() {
         centrePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 10));
         centrePanel.setPreferredSize(new Dimension(WINDOW_WIDTH, WINDOW_HEIGHT - 160 - 110));
-        for (Topic t : topics) {
+        for (Topic t : course.getTopics()) {
             JLabel newTopicLabel = new JLabel(getTopicInfo(t));
             newTopicLabel.setName(t.getTopicName());
             topicLabels.add(newTopicLabel);
@@ -160,7 +158,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     private void handleAddButtonAction() {
         yayLabel.setVisible(false);
         Topic newTopic = new Topic(userText.getText());
-        topics.add(newTopic);
+        course.addTopic(newTopic);
 
         JLabel newTopicLabel = new JLabel(getTopicInfo(newTopic));
         newTopicLabel.setName(newTopic.getTopicName());
@@ -174,7 +172,16 @@ public class CourseGUI extends JFrame implements ActionListener {
     //          while also removing the label from centrePanel
     private void handleRemoveButtonAction() {
         yayLabel.setVisible(false);
-        topics.removeIf(topic -> topic.getTopicName().equals(userText.getText()));
+        boolean removable = false;
+        for (Topic t : course.getTopics()) {
+            if (t.getTopicName().equals(userText.getText())) {
+                removable = true;
+                break;
+            }
+        }
+        if (removable) {
+            course.removeTopic(userText.getText());
+        }
         for (JLabel label : topicLabels) {
             if (label.getName().equals(userText.getText())) {
                 topicLabels.remove(label);
@@ -192,7 +199,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     //          while also displaying a "celebration" image to congratulate the user
     private void handleCompleteButtonAction() {
         Topic userTopic = null;
-        for (Topic t : topics) {
+        for (Topic t : course.getTopics()) {
             if (t.getTopicName().equals(userText.getText())) {
                 t.completeQuestion();
                 userTopic = t;

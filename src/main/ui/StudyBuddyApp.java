@@ -62,7 +62,7 @@ public class StudyBuddyApp {
     private void saveEdits() {
         clubsManager.saveAgendas();
         coursesManager.saveAgendas();
-        System.out.println("Saved all your edits!");
+        System.out.println("Saved all your edits!\n");
     }
 
     // EFFECTS: prints main menu options for user
@@ -87,7 +87,5 @@ public class StudyBuddyApp {
         for (Event next : EventLog.getInstance()) {
             System.out.println(next.toString() + "\n");
         }
-        EventLog el = EventLog.getInstance();
-        el.clear();
     }
 }

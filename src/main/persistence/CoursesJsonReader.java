@@ -40,9 +40,10 @@ public class CoursesJsonReader extends JsonReader {
         List<Topic> topics = parseTopics(json.getJSONArray("topics"));
         List<Date> dates = parseDates(json.getJSONArray("dates"));
         Course course = new Course(name);
-        for (Topic t : topics) {
-            course.addTopic(t);
-        }
+        course.addTopics(topics);
+//        for (Topic t : topics) {
+//            course.addTopic(t);
+//        }
         for (Date d : dates) {
             course.addDate(d);
         }

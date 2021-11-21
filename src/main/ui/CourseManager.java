@@ -95,12 +95,16 @@ public class CourseManager extends AgendaManager {
     private void removeTopic() {
         System.out.println("Enter the name of the topic you want to remove: ");
         String topicName = input.next();
+        boolean removable = false;
         for (Topic t : course.getTopics()) {
             if (t.getTopicName().equals(topicName)) {
-                course.getTopics().remove(t);
-                System.out.println("Topic was removed!");
+                removable = true;
                 break;
             }
+        }
+        if (removable) {
+            course.removeTopic(topicName);
+            System.out.println("Topic was removed!");
         }
     }
 

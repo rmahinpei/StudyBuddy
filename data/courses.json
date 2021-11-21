@@ -2,25 +2,35 @@
     {
         "topics": [
             {
-                "numCompleted": 1,
-                "name": "Construction"
+                "numCompleted": 2,
+                "name": "Refactoring"
+            },
+            {
+                "numCompleted": 4,
+                "name": "Abstraction"
             },
             {
                 "numCompleted": 1,
-                "name": "Abstraction"
+                "name": "Design"
             }
         ],
         "name": "CPSC 210",
         "dates": []
     },
     {
-        "topics": [],
-        "name": "MATH 221",
+        "topics": [{
+            "numCompleted": 2,
+            "name": "Integration"
+        }],
+        "name": "MATH 200",
         "dates": []
     },
     {
-        "topics": [],
-        "name": "MATH 200",
+        "topics": [{
+            "numCompleted": 1,
+            "name": "Eigenvalues"
+        }],
+        "name": "MATH 221",
         "dates": []
     }
 ]}
