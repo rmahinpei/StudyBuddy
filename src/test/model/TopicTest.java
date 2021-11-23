@@ -18,6 +18,14 @@ public class TopicTest {
         assertEquals("Surface sketching", t1.getTopicName());
         assertEquals(0, t1.getNumCompleted());
         assertEquals(3, t1.getNumRemaining());
+        assertEquals("", t1.getCourse().getName());
+    }
+
+    @Test
+    public void testSetCourse() {
+        Course c1 = new Course("MATH 200");
+        t1.setCourse(c1);
+        assertEquals(c1, t1.getCourse());
     }
 
     @Test

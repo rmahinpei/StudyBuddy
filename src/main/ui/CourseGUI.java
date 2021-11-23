@@ -158,6 +158,7 @@ public class CourseGUI extends JFrame implements ActionListener {
     private void handleAddButtonAction() {
         yayLabel.setVisible(false);
         Topic newTopic = new Topic(userText.getText());
+        newTopic.setCourse(course);
         course.addTopic(newTopic);
 
         JLabel newTopicLabel = new JLabel(getTopicInfo(newTopic));

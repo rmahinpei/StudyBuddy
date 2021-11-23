@@ -86,7 +86,9 @@ public class CourseManager extends AgendaManager {
     private void addTopic() {
         System.out.println("Enter the name of the topic you want to add: ");
         String topicName = input.next();
-        course.addTopic(new Topic(topicName));
+        Topic newTopic = new Topic(topicName);
+        course.addTopic(newTopic);
+        newTopic.setCourse(course);
         System.out.println("Topic was added!");
     }
 

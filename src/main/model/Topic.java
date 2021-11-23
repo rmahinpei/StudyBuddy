@@ -7,13 +7,16 @@ public class Topic {
     private String name;
     private int numCompleted;
     private int numRemaining;
+    private Course course;
 
     // EFFECTS: creates a topic with given name and sets number of completed practice questions to 0
-    //          and number of remaining practice questions to MIN_QUESTIONS_TO_COMPLETE
+    //          and number of remaining practice questions to MIN_QUESTIONS_TO_COMPLETE and
+    //          sets its course to a default course with no name
     public Topic(String name) {
         this.name = name;
-        numCompleted = 0;
-        numRemaining = MIN_QUESTIONS_TO_COMPLETE;
+        this.numCompleted = 0;
+        this.numRemaining = MIN_QUESTIONS_TO_COMPLETE;
+        this.course = new Course("");
     }
 
     // EFFECTS: creates a topic with given name and the given number of completed practice questions
@@ -44,6 +47,18 @@ public class Topic {
         return numRemaining;
     }
 
+    // GETTER
+    public Course getCourse() {
+        return course;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: sets course to given course
+    public void setCourse(Course c) {
+        this.course = c;
+    }
+
+
     // MODIFIES: this
     // EFFECTS: increases number of completed questions by 1
     //          if number of remaining questions is greater than 0, it decreases it by 1
@@ -53,6 +68,7 @@ public class Topic {
         if (numRemaining > 0) {
             numRemaining--;
         }
-        EventLog.getInstance().logEvent(new Event("Completed a question for Topic: " + getTopicName()));
+        EventLog.getInstance().logEvent(new Event("Completed a question for " + getTopicName()
+                + " in " + getCourse().getName()));
     }
 }

@@ -22,13 +22,8 @@ public class Course extends Agenda {
     // EFFECTS: adds topic to the end of topics
     public void addTopic(Topic t) {
         topics.add(t);
-        EventLog.getInstance().logEvent(new Event("Added Topic: " + t.getTopicName()));
-    }
-
-    // MODIFIES: this
-    // EFFECTS: adds all topics in given list to topics
-    public void addTopics(List<Topic> topics) {
-        this.topics.addAll(topics);
+        EventLog.getInstance().logEvent(new Event("Added " + t.getTopicName()
+                + " to " + name));
     }
 
     // MODIFIES: this
@@ -37,7 +32,8 @@ public class Course extends Agenda {
         for (Topic t : topics) {
             if (t.getTopicName().equals(topicName)) {
                 topics.remove(t);
-                EventLog.getInstance().logEvent(new Event("Removed Topic: " + t.getTopicName()));
+                EventLog.getInstance().logEvent(new Event("Removed " + t.getTopicName()
+                        + " from " + name));
                 break;
             }
         }

@@ -78,7 +78,7 @@ public class CoursesJsonWriterTest extends JsonTest {
 
         c2 = new Course("MATH200");
         c2.addDate(new Date(2023, 5, 13, DateType.MEETING));
-        c2.addTopic(new Topic("Derivatives", 2));
+        c2.addTopic(new Topic("Derivatives",2));
 
         List<Course> courses = new ArrayList<>();
         courses.add(c1);
