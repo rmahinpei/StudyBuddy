@@ -7,6 +7,10 @@
         {
             "numCompleted": 4,
             "name": "Abstraction"
+        },
+        {
+            "numCompleted": 1,
+            "name": "Design"
         }
     ],
     "name": "CPSC 210",

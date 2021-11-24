@@ -38,13 +38,31 @@ learning more efficient, and hopefully reduce their exam-related stress.
  
 ## Phase 4: Task 2
 Here is a description of the events that occur when StudyBuddy runs:
-- User adds a Topic to a Course: EventLog logs a new Event with the description "Added Topic: TOPIC NAME".
-- User removes a Topic to a Course: EventLog logs a new Event with the description "Removed Topic: TOPIC NAME".
-- User completes a question for a Topic of a Course: EventLog logs a new Event with the description 
-"Completed a question for Topic: TOPIC NAME".
+- User adds a Topic to a Course: EventLog logs an Event with the description "Added TOPIC NAME to COURSE NAME".
+- User removes a Topic to a Course: EventLog logs an Event with the description "Removed TOPIC NAME from COURSE NAME".
+- User completes a question for a Topic of a Course: EventLog logs an Event with the description 
+"Completed a question for TOPIC NAME in COURSE NAME".
 
-Here is a sample of what gets printed to the console after user quits StudyBuddy (assuming that they triggered
-these events when they were using the application).
-- *Added Topic: Abstraction*
-- *Completed a question for Topic: Abstraction*
-- *Removed Topic: Abstraction* 
+Here is a sample of what might get printed to the console after user quits StudyBuddy:
+
+- *Tue Nov 23 16:03:19 PST 2021
+Added Design to CPSC 210*
+
+- *Tue Nov 23 16:03:24 PST 2021
+Completed a question for Design in CPSC 210*
+
+- *Tue Nov 23 16:03:25 PST 2021
+Removed Design from CPSC 210*
+
+## Phase 4: Task 3
+If I had  time to refactor my project, here are the top two things I would do:
+- **Improving the cohesion of the StudyBuddyGUI class**: Currently, the StudyBuddyGUI class does not center around a
+single cohesive concept. For example, this class currently sets up the GUI window AND takes care of the button 
+functionalities/response behaviours. Since these two tasks are clearly distinct from one another, it would be best to
+separate them into two separate classes (one class would take care of the general set-up, and the other would take
+care of the button functionalities). 
+- **Including more helper functions**: Even though all my methods were less than 25 lines, I still think it would have
+been better to use more helper functions, with each function aiming to achieve a single task that its name would
+communicate to anyone reading my code. This way, even if someone who is not very familiar with my project was looking 
+at my project, they would be able to read my code and follow its logic/purpose with the help of 
+the descriptive helper functions.
