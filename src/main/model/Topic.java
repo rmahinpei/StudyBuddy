@@ -63,6 +63,7 @@ public class Topic {
     // EFFECTS: increases number of completed questions by 1
     //          if number of remaining questions is greater than 0, it decreases it by 1
     //          if it is 0, it keeps it at 0
+    //          also gets EventLog to log this completion as en event
     public void completeQuestion() {
         numCompleted++;
         if (numRemaining > 0) {

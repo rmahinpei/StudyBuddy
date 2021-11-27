@@ -19,7 +19,7 @@ public class Course extends Agenda {
     }
 
     // MODIFIES: this
-    // EFFECTS: adds topic to the end of topics
+    // EFFECTS: adds topic to the end of topics and gets EventLog to log this addition as en event
     public void addTopic(Topic t) {
         topics.add(t);
         EventLog.getInstance().logEvent(new Event("Added " + t.getTopicName()
@@ -27,7 +27,7 @@ public class Course extends Agenda {
     }
 
     // MODIFIES: this
-    // EFFECTS: removes the topic with given name from topics
+    // EFFECTS: removes the topic with given name from topics and gets EventLog to log this removal as en event
     public void removeTopic(String topicName) {
         for (Topic t : topics) {
             if (t.getTopicName().equals(topicName)) {
