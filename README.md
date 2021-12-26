@@ -1,6 +1,8 @@
 # StudyBuddy
 *Taking time management to the next level*
+
 *A Java application to allow university students develop effective study habits*
+
 *Contains a console-based component and a GUI component*
 
 ## Description
